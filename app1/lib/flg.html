@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tearing Down Photo Animation</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .tearing-photo {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+        perspective: 1000px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: tearDown 5s linear infinite;
+        transform-origin: bottom;
+      }
+
+      @keyframes tearDown {
+        0% {
+          transform: scaleY(1);
+        }
+        25% {
+          transform: scaleY(0.8);
+        }
+        50% {
+          transform: scaleY(0.6);
+        }
+        75% {
+          transform: scaleY(0.8);
+        }
+        100% {
+          transform: scaleY(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tearing-photo">
+      <img src="R.jpg" alt="Tearing Down Photo" />
+    </div>
+  </body>
+</html>
